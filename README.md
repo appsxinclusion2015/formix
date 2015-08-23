@@ -5,7 +5,10 @@ Copyright © 2012-2015, Intel Corporation. All rights reserved.
 
 See [LICENSE.md](<LICENSE.md>) for license terms and conditions.
 
-Use this template as a starting point for an Intel XDK App Designer project that
+Use this templa
+
+
+te as a starting point for an Intel XDK App Designer project that
 will be distributed as a *mobile Cordova web app*. The file named `init-dev.js`
 included as part of this project contains init code that generates an
 `app.Ready` event; which is used as a way to normalize how App Designer starts
