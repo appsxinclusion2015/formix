@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>APP GAME</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<style type="text/css">
+body { margin: 0px; overflow: hidden; }
+canvas { border: 1px solid black; }
+</style>    <link rel="stylesheet" href="css/app.css">
+    <script src="cordova.js" id="xdkJScordova_"></script>
+
+    <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+    <script type="text/javascript" src="magictouch.js"></script>
+
+    <script type="text/javascript">          
+   var canvas;
+var ctx;
+var w = 0;
+var h = 0;
+var timer;
+var updateStarted = false;
+var touches = [];
+function update() {
+	if (updateStarted) return;
+	updateStarted = true;
+	var nw = window.innerWidth;
+	var nh = window.innerHeight;
+	if ((w != nw) || (h != nh)) {
+		w = nw;
+		h = nh;
+		canvas.style.width = w+'px';
+		canvas.style.height = h+'px';
+		canvas.width = w;
+		canvas.height = h;
+	}
+	ctx.clearRect(0, 0, w, h);
+	var i, len = touches.length;
+	for (i=0; i<len; i++) {
+		var touch = touches[i];
+    var px = touch.pageX;
+    var py = touch.pageY;
+		ctx.beginPath();
+		ctx.arc(px, py, 20, 0, 2*Math.PI, true);
+		ctx.fillStyle = "rgba(0, 0, 200, 0.2)";
+		ctx.fill();
+		ctx.lineWidth = 2.0;
+		ctx.strokeStyle = "rgba(0, 0, 200, 0.8)";
+		ctx.stroke();
+    console.log('drawn circle at ' + px +',' + py);
+	}
+	updateStarted = false;
+}
+        
+function ol() {
+	canvas = document.getElementById('canvas');
+	ctx = canvas.getContext('2d');
+	timer = setInterval(update, 500);
+canvas.addEventListener('touchend', function() {
+	ctx.clearRect(0, 0, w, h);
+});
+canvas.addEventListener('touchstart', function(event) {
+  console.log('start');
+});
+};        
+    </script>  
+    </head>
+<body onload="ol()">
+    
+    <div id='tortuga'>
+    <img src='../www/images/tortuga.png' style='background;width:100%;height:100%'>
+ <script type="text/javascript">
+    var obj = document.getElementById('tortuga')
+        obj.addEventListener('touchstart', function(event){
+        if(event.targetTouches.length == 4){
+           document.getElementById('tortuga').style.display = 'none'
+           document.getElementById('acierto1').style.display = 'inline'
+            }/*else{
+                document.getElementById('tortuga').style.display = 'none'
+                document.getElementById('error').style.display = 'inline'
+            }*/
+        });
+        </script>
+    </div>
+    <div id='estrella'  style="display:none">
+    <img src='../www/images/estrella.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('estrella')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 3){
+            document.getElementById('estrella').style.display = 'none'
+           document.getElementById('acierto').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+    <div id="acierto" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto').style.display = 'none'
+                    document.getElementById('ballena').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+        <div id='ballena'  style="display:none">
+    <img src='../www/images/ballena.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('ballena')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 4){
+            document.getElementById('ballena').style.display = 'none'
+           document.getElementById('acierto2').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+        <div id='pez'  style="display:none">
+    <img src='../www/images/pez.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('pez')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 4){
+            document.getElementById('pez').style.display = 'none'
+           document.getElementById('acierto3').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+        <div id='pinguino'  style="display:none">
+    <img src='../www/images/pinguino.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('pinguino')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 4){
+            document.getElementById('pinguino').style.display = 'none'
+           document.getElementById('acierto4').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+        <div id='vibora'  style="display:none">
+    <img src='../www/images/vibora.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('vibora')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 3){
+            document.getElementById('vibora').style.display = 'none'
+           document.getElementById('acierto5').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+        <div id="acierto1" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto1')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto1').style.display = 'none'
+                    document.getElementById('estrella').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    <div id="acierto2" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto2')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto2').style.display = 'none'
+                    document.getElementById('pez').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    <div id="acierto3" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto3')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto3').style.display = 'none'
+                    document.getElementById('pinguino').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    <div id="acierto4" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto4')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto4').style.display = 'none'
+                    document.getElementById('vibora').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    <div id="acierto5" style='display:none'>
+          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('acierto5')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('acierto5').style.display = 'none'
+                    document.getElementById('tortuga').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+        <div id="error" style='display:none'>
+          <img src='../www/images/error.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('error')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('error').style.display = 'none'
+                    document.getElementById('tortuga').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+            <div id="error1" style='display:none'>
+          <img src='../www/images/error.png' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('error1')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('error1').style.display = 'none'
+                    document.getElementById('estrella').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+</body>
+</html>
