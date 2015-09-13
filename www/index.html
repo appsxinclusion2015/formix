@@ -42,22 +42,35 @@ function update() {
 	}
 	ctx.clearRect(0, 0, w, h);
 	var i, len = touches.length;
-	for (i=0; i<len; i++) {
-		var touch = touches[i];
-    var px = touch.pageX;
-    var py = touch.pageY;
-		ctx.beginPath();
-		ctx.arc(px, py, 20, 0, 2*Math.PI, true);
-		ctx.fillStyle = "rgba(0, 0, 200, 0.2)";
-		ctx.fill();
-		ctx.lineWidth = 2.0;
-		ctx.strokeStyle = "rgba(0, 0, 200, 0.8)";
-		ctx.stroke();
-    console.log('drawn circle at ' + px +',' + py);
-	}
 	updateStarted = false;
 }
-        
+function formas(){
+    var obj = document.getElementById('menu')
+        obj.addEventListener('touchstart', function(event){ 
+        if(event.targetTouches.length == 1){
+           document.getElementById('menu').style.display = 'none'
+           document.getElementById('tortuga').style.display = 'inline'
+   }
+  });
+}
+function emociones(){
+    var obj = document.getElementById('menu')
+        obj.addEventListener('touchstart', function(event){ 
+        if(event.targetTouches.length == 1){
+           document.getElementById('menu').style.display = 'none'
+           document.getElementById('como me siento 1').style.display = 'inline'
+   }
+  });
+}
+function animales(){
+    var obj = document.getElementById('menu')
+        obj.addEventListener('touchstart', function(event){ 
+        if(event.targetTouches.length == 1){
+           document.getElementById('menu').style.display = 'none'
+           document.getElementById('numero1').style.display = 'inline'
+   }
+  }); 
+}        
 function ol() {
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
@@ -72,43 +85,47 @@ canvas.addEventListener('touchstart', function(event) {
     </script>  
     </head>
 <body onload="ol()">
-    
-    <div id='tortuga'>
+    <div id="menu">
+        <img src="../www/images/inicio.png" style='background;width:100%;height:100%'>
+        <img src="../www/images/btnFormas.png" onclick='formas();' style='position:relative;left:40px;bottom:350px;width:300px;height:300px'>
+        <img src="../www/images/btnEmociones.png" onclick='emociones();' style='position:relative;left:60px;bottom:350px;width:300px;height:300px'>
+        <img src="../www/images/btnAnimales.png" onclick='animales();' style='position:relative;left:80px;bottom:350px;width:300px;height:300px'>
+    </div>
+    <div id='tortuga' style='display:none'>
     <img src='../www/images/tortuga.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
  <script type="text/javascript">
-    var obj = document.getElementById('tortuga')
+        var obj = document.getElementById('tortuga')
         obj.addEventListener('touchstart', function(event){
-        if(event.targetTouches.length == 4){
-           document.getElementById('tortuga').style.display = 'none'
-           document.getElementById('acierto1').style.display = 'inline'
-            }/*else{
+            if(event.touches.length == 6){
                 document.getElementById('tortuga').style.display = 'none'
-                document.getElementById('error').style.display = 'inline'
-            }*/
-        });
+                document.getElementById('acierto1').style.display = 'inline'
+                }
+            });
         </script>
     </div>
     <div id='estrella'  style="display:none">
     <img src='../www/images/estrella.png' style='background;width:100%;height:100%'>
+        <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('estrella')
         obj.addEventListener('touchstart', function(event){
-                if(event.targetTouches.length == 3){
-            document.getElementById('estrella').style.display = 'none'
-           document.getElementById('acierto').style.display = 'inline'
-                }/*else{
+                if(event.touches.length == 5){
                 document.getElementById('estrella').style.display = 'none'
-                document.getElementById('error1').style.display = 'inline'
-                }*/
+                document.getElementById('acierto').style.display = 'inline'
+                 /*}else{    
+            document.getElementById('estrella').style.display = 'none'
+            document.getElementById('acierto').style.display = 'inline'
+                */}
             });
         </script>
             </div>
     <div id="acierto" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto')
         obj.addEventListener('touchstart', function(event){
-                if(event.targetTouches.length == 1){
+                if(event.touches.length == 1){
                     document.getElementById('acierto').style.display = 'none'
                     document.getElementById('ballena').style.display = 'inline'
                     }
@@ -117,6 +134,7 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='ballena'  style="display:none">
     <img src='../www/images/ballena.png' style='background;width:100%;height:100%'>
+            <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('ballena')
         obj.addEventListener('touchstart', function(event){
@@ -132,10 +150,11 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='pez'  style="display:none">
     <img src='../www/images/pez.png' style='background;width:100%;height:100%'>
+            <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('pez')
         obj.addEventListener('touchstart', function(event){
-                if(event.targetTouches.length == 4){
+                if(event.targetTouches.length == 6){
             document.getElementById('pez').style.display = 'none'
            document.getElementById('acierto3').style.display = 'inline'
                 }/*else{
@@ -147,7 +166,8 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='pinguino'  style="display:none">
     <img src='../www/images/pinguino.png' style='background;width:100%;height:100%'>
-        <script type="text/javascript">
+<img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
         var obj = document.getElementById('pinguino')
         obj.addEventListener('touchstart', function(event){
                 if(event.targetTouches.length == 4){
@@ -162,7 +182,8 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='vibora'  style="display:none">
     <img src='../www/images/vibora.png' style='background;width:100%;height:100%'>
-        <script type="text/javascript">
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
         var obj = document.getElementById('vibora')
         obj.addEventListener('touchstart', function(event){
                 if(event.targetTouches.length == 3){
@@ -175,8 +196,37 @@ canvas.addEventListener('touchstart', function(event) {
             });
         </script>
             </div>
+            <div id='pescado'  style="display:none">
+    <img src='../www/images/pescado.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('pescado')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 3){
+            document.getElementById('pescado').style.display = 'none'
+           document.getElementById('acierto6').style.display = 'inline'
+                }/*else{
+                document.getElementById('estrella').style.display = 'none'
+                document.getElementById('error1').style.display = 'inline'
+                }*/
+            });
+        </script>
+            </div>
+            <div id='cangrejo'  style="display:none">
+    <img src='../www/images/cangrejo.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('cangrejo')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 3){
+            document.getElementById('cangrejo').style.display = 'none'
+           document.getElementById('acierto7').style.display = 'inline'
+                }
+            });
+        </script>
+            </div>
         <div id="acierto1" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto1')
         obj.addEventListener('touchstart', function(event){
@@ -188,7 +238,7 @@ canvas.addEventListener('touchstart', function(event) {
         </script>
     </div>
     <div id="acierto2" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto2')
         obj.addEventListener('touchstart', function(event){
@@ -200,7 +250,7 @@ canvas.addEventListener('touchstart', function(event) {
         </script>
     </div>
     <div id="acierto3" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto3')
         obj.addEventListener('touchstart', function(event){
@@ -212,7 +262,7 @@ canvas.addEventListener('touchstart', function(event) {
         </script>
     </div>
     <div id="acierto4" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto4')
         obj.addEventListener('touchstart', function(event){
@@ -224,37 +274,613 @@ canvas.addEventListener('touchstart', function(event) {
         </script>
     </div>
     <div id="acierto5" style='display:none'>
-          <img src='../www/images/muybien.png' style='background;width:100%;height:100%'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
         var obj = document.getElementById('acierto5')
         obj.addEventListener('touchstart', function(event){
                 if(event.targetTouches.length == 1){
                     document.getElementById('acierto5').style.display = 'none'
-                    document.getElementById('tortuga').style.display = 'inline'
+                    document.getElementById('pescado').style.display = 'inline'
                     }
             });
         </script>
     </div>
-        <div id="error" style='display:none'>
-          <img src='../www/images/error.png' style='background;width:100%;height:100%'>
+        <div id="acierto6" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
-        var obj = document.getElementById('error')
+        var obj = document.getElementById('acierto6')
         obj.addEventListener('touchstart', function(event){
                 if(event.targetTouches.length == 1){
-                    document.getElementById('error').style.display = 'none'
-                    document.getElementById('tortuga').style.display = 'inline'
+                    document.getElementById('acierto6').style.display = 'none'
+                    document.getElementById('cangrejo').style.display = 'inline'
                     }
             });
         </script>
     </div>
-            <div id="error1" style='display:none'>
-          <img src='../www/images/error.png' style='background;width:100%;height:100%'>
+        <div id="acierto7" style='display:none'>
+          <img src='../www/images/nivelsuperado.gif' style='background;width:100%;height:100%'>
         <script type="text/javascript">
-        var obj = document.getElementById('error1')
+        var obj = document.getElementById('acierto7')
         obj.addEventListener('touchstart', function(event){
                 if(event.targetTouches.length == 1){
-                    document.getElementById('error1').style.display = 'none'
-                    document.getElementById('estrella').style.display = 'inline'
+                    document.getElementById('acierto7').style.display = 'none'
+                    document.getElementById('menu').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    <div id='como me siento 1' style='display:none'>
+    <img src='../www/images/como se siente 1.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+        <script type="text/javascript">
+        var obj = document.getElementById('como me siento 1')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('como me siento 1').style.display = 'none'
+                document.getElementById('correcto1').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+    <div id='como me siento 2' style='display:none'>
+    <img src='../www/images/como se siente 2.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+        <script type="text/javascript">
+        var obj = document.getElementById('como me siento 2')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 4){
+                document.getElementById('como me siento 2').style.display = 'none'
+                document.getElementById('correcto2').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 3' style='display:none'>
+    <img src='../www/images/como se siente 3.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 3')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('como me siento 3').style.display = 'none'
+                document.getElementById('correcto3').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 4' style='display:none'>
+    <img src='../www/images/como se siente 4.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 4')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 4){
+                document.getElementById('como me siento 4').style.display = 'none'
+                document.getElementById('correcto4').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 5' style='display:none'>
+    <img src='../www/images/como se siente 5.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 5')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 5){
+                document.getElementById('como me siento 5').style.display = 'none'
+                document.getElementById('correcto5').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 6' style='display:none'>
+    <img src='../www/images/como se siente 6.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 6')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('como me siento 6').style.display = 'none'
+                document.getElementById('correcto6').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 7' style='display:none'>
+    <img src='../www/images/como se siente 7.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 7')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('como me siento 7').style.display = 'none'
+                document.getElementById('correcto7').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 8' style='display:none'>
+    <img src='../www/images/como se siente 8.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 8')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 4){
+                document.getElementById('como me siento 8').style.display = 'none'
+                document.getElementById('correcto8').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 9' style='display:none'>
+    <img src='../www/images/como se siente 9.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 9')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 4){
+                document.getElementById('como me siento 9').style.display = 'none'
+                document.getElementById('correcto9').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+        <div id='como me siento 10' style='display:none'>
+    <img src='../www/images/como se siente 10.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+            <script type="text/javascript">
+        var obj = document.getElementById('como me siento 10')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 6){
+                document.getElementById('como me siento 10').style.display = 'none'
+                document.getElementById('correcto10').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='como me siento 11' style='display:none'>
+    <img src='../www/images/como se siente 11.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('como me siento 11')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 6){
+                document.getElementById('como me siento 11').style.display = 'none'
+                document.getElementById('correcto11').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='como me siento 12' style='display:none'>
+    <img src='../www/images/como se siente 12.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('como me siento 12')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 6){
+                document.getElementById('como me siento 12').style.display = 'none'
+                document.getElementById('correcto12').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id="correcto1" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto1')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto1').style.display = 'none'
+                    document.getElementById('como me siento 2').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+    
+            <div id="correcto2" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto2')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto2').style.display = 'none'
+                    document.getElementById('como me siento 3').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto3" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto3')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto3').style.display = 'none'
+                    document.getElementById('como me siento 4').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto4" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto4')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto4').style.display = 'none'
+                    document.getElementById('como me siento 5').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto5" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto5')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto5').style.display = 'none'
+                    document.getElementById('como me siento 6').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto6" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto6')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto6').style.display = 'none'
+                    document.getElementById('como me siento 7').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto7" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto7')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto7').style.display = 'none'
+                    document.getElementById('como me siento 8').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto8" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto8')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto8').style.display = 'none'
+                    document.getElementById('como me siento 9').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto9" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto9')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto9').style.display = 'none'
+                    document.getElementById('como me siento 10').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                <div id="correcto10" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto10')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto10').style.display = 'none'
+                    document.getElementById('como me siento 11').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                    <div id="correcto11" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto11')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto11').style.display = 'none'
+                    document.getElementById('como me siento 12').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                    <div id="correcto12" style='display:none'>
+          <img src='../www/images/nivelsuperado.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('correcto12')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('correcto12').style.display = 'none'
+                    document.getElementById('menu').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+        <div id='numero1' style='display:none'>
+    <img src='../www/images/numero1.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>        
+ <script type="text/javascript">
+        var obj = document.getElementById('numero1')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 1){
+                document.getElementById('numero1').style.display = 'none'
+                document.getElementById('bien1').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero2' style='display:none'>
+    <img src='../www/images/numero2.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero2')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 2){
+                document.getElementById('numero2').style.display = 'none'
+                document.getElementById('bien2').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero3' style='display:none'>
+    <img src='../www/images/numero3.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero3')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('numero3').style.display = 'none'
+                document.getElementById('bien3').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero4' style='display:none'>
+    <img src='../www/images/numero4.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero4')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 4){
+                document.getElementById('numero4').style.display = 'none'
+                document.getElementById('bien4').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero5' style='display:none'>
+    <img src='../www/images/numero5.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero5')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 5){
+                document.getElementById('numero5').style.display = 'none'
+                document.getElementById('bien5').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero6' style='display:none'>
+    <img src='../www/images/numero6.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero6')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 1){
+                document.getElementById('numero6').style.display = 'none'
+                document.getElementById('bien6').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero7' style='display:none'>
+    <img src='../www/images/numero7.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero7')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('numero7').style.display = 'none'
+                document.getElementById('bien7').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero8' style='display:none'>
+    <img src='../www/images/numero8.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero8')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 2){
+                document.getElementById('numero8').style.display = 'none'
+                document.getElementById('bien8').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero9' style='display:none'>
+    <img src='../www/images/numero9.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero9')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('numero9').style.display = 'none'
+                document.getElementById('bien9').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero10' style='display:none'>
+    <img src='../www/images/numero10.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero10')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 3){
+                document.getElementById('numero10').style.display = 'none'
+                document.getElementById('bien10').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+            <div id='numero11' style='display:none'>
+    <img src='../www/images/numero11.png' style='background;width:100%;height:100%'>
+    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
+                <script type="text/javascript">
+        var obj = document.getElementById('numero11')
+        obj.addEventListener('touchstart', function(event){
+            if(event.touches.length == 5){
+                document.getElementById('numero11').style.display = 'none'
+                document.getElementById('bien11').style.display = 'inline'
+                }
+            });
+        </script>
+    </div>
+                    <div id="bien1" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien1')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien1').style.display = 'none'
+                    document.getElementById('numero2').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien2" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien2')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien2').style.display = 'none'
+                    document.getElementById('numero3').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien3" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien3')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien3').style.display = 'none'
+                    document.getElementById('numero4').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien4" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien4')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien4').style.display = 'none'
+                    document.getElementById('numero5').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien5" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien5')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien5').style.display = 'none'
+                    document.getElementById('numero6').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien6" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien6')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien6').style.display = 'none'
+                    document.getElementById('numero7').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien7" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien7')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien7').style.display = 'none'
+                    document.getElementById('numero8').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien8" style='display:none'>
+          <img src='../www/images/excelente.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien8')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien8').style.display = 'none'
+                    document.getElementById('numero9').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien9" style='display:none'>
+          <img src='../www/images/genial.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien9')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien9').style.display = 'none'
+                    document.getElementById('numero10').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien10" style='display:none'>
+          <img src='../www/images/muybien.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien10')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien10').style.display = 'none'
+                    document.getElementById('numero11').style.display = 'inline'
+                    }
+            });
+        </script>
+    </div>
+                        <div id="bien11" style='display:none'>
+          <img src='../www/images/nivelsuperado.gif' style='background;width:100%;height:100%'>
+        <script type="text/javascript">
+        var obj = document.getElementById('bien11')
+        obj.addEventListener('touchstart', function(event){
+                if(event.targetTouches.length == 1){
+                    document.getElementById('bien11').style.display = 'none'
+                    document.getElementById('menu').style.display = 'inline'
                     }
             });
         </script>
