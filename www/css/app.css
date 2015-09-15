@@ -23,6 +23,7 @@ body {
 /* SOURCE: http://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
 html {
     -ms-touch-action: pan-x ;
+    height: 100%
 }
 
 /* Recommended for Windows 8 Phone */
@@ -30,6 +31,7 @@ html {
 body {
     -ms-touch-action: pan-y ;
     -ms-content-zooming: none ;
+    height: 100% ;
 }
 
 /* allow copy-paste */
@@ -41,4 +43,28 @@ body {
     /* margin: 0.5rem ; */
     background: white ;
     color: black ;
+}
+#menu {
+    background-image: url("../images/inicio.png");
+    background-size:   cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    height: 100%;
+    position: relative;
+}
+ 
+#contenedor1 {
+    width: 100%;
+    height: 50%;
+} 
+
+#contenedor2 {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+
+.botones {
+    width: 200px;
+    height: 200px;
 }

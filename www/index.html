@@ -83,15 +83,16 @@ canvas.addEventListener('touchstart', function(event) {
     </script>  
     </head>
 <body onload="ol()">
-    <div id="menu">
-        <img src="../www/images/inicio.png" style='background;width:100%;height:100%'>
-        <img src="../www/images/btnFormas.png" onclick='formas();' style='position:relative;left:40px;bottom:350px;width:300px;height:300px'>
-        <img src="../www/images/btnEmociones.png" onclick='emociones();' style='position:relative;left:60px;bottom:350px;width:300px;height:300px'>
-        <img src="../www/images/btnAnimales.png" onclick='animales();' style='position:relative;left:80px;bottom:350px;width:300px;height:300px'>
+  <div id="menu">
+        <div id="contenedor1"></div>
+        <div id="contenedor2">
+            <img id="btnFormas" class="botones" src="images/btnFormas.png" onclick="formas();">
+            <img id="btnEmociones" class="botones" src="images/btnEmociones.png" onclick="emociones();">
+            <img id="btnAnimales" class="botones" src="images/btnAnimales.png" onclick="animales();">
+        </div>
     </div>
     <div id='tortuga' style='display:none'>
     <img src='../www/images/tortuga.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
  <script type="text/javascript">
         var obj = document.getElementById('tortuga')
         obj.addEventListener('touchstart', function(event){
@@ -104,7 +105,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
     <div id='estrella'  style="display:none">
     <img src='../www/images/estrella.png' style='background;width:100%;height:100%'>
-        <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('estrella')
         obj.addEventListener('touchstart', function(event){
@@ -132,7 +132,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='ballena'  style="display:none">
     <img src='../www/images/ballena.png' style='background;width:100%;height:100%'>
-            <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('ballena')
         obj.addEventListener('touchstart', function(event){
@@ -148,7 +147,6 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='pez'  style="display:none">
     <img src='../www/images/pez.png' style='background;width:100%;height:100%'>
-            <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('pez')
         obj.addEventListener('touchstart', function(event){
@@ -164,7 +162,6 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='pinguino'  style="display:none">
     <img src='../www/images/pinguino.png' style='background;width:100%;height:100%'>
-<img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('pinguino')
         obj.addEventListener('touchstart', function(event){
@@ -180,7 +177,6 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
         <div id='vibora'  style="display:none">
     <img src='../www/images/vibora.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('vibora')
         obj.addEventListener('touchstart', function(event){
@@ -196,7 +192,6 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
             <div id='pescado'  style="display:none">
     <img src='../www/images/pescado.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('pescado')
         obj.addEventListener('touchstart', function(event){
@@ -212,7 +207,6 @@ canvas.addEventListener('touchstart', function(event) {
             </div>
             <div id='cangrejo'  style="display:none">
     <img src='../www/images/cangrejo.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('cangrejo')
         obj.addEventListener('touchstart', function(event){
@@ -309,7 +303,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
     <div id='como me siento 1' style='display:none'>
     <img src='../www/images/como se siente 1.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('como me siento 1')
         obj.addEventListener('touchstart', function(event){
@@ -322,7 +315,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
     <div id='como me siento 2' style='display:none'>
     <img src='../www/images/como se siente 2.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
         <script type="text/javascript">
         var obj = document.getElementById('como me siento 2')
         obj.addEventListener('touchstart', function(event){
@@ -335,7 +327,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 3' style='display:none'>
     <img src='../www/images/como se siente 3.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 3')
         obj.addEventListener('touchstart', function(event){
@@ -348,7 +339,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 4' style='display:none'>
     <img src='../www/images/como se siente 4.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 4')
         obj.addEventListener('touchstart', function(event){
@@ -361,7 +351,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 5' style='display:none'>
     <img src='../www/images/como se siente 5.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 5')
         obj.addEventListener('touchstart', function(event){
@@ -374,7 +363,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 6' style='display:none'>
     <img src='../www/images/como se siente 6.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 6')
         obj.addEventListener('touchstart', function(event){
@@ -387,11 +375,10 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 7' style='display:none'>
     <img src='../www/images/como se siente 7.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 7')
         obj.addEventListener('touchstart', function(event){
-            if(event.touches.length == 3){
+            if(event.touches.length == 5){
                 document.getElementById('como me siento 7').style.display = 'none'
                 document.getElementById('correcto7').style.display = 'inline'
                 }
@@ -400,7 +387,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 8' style='display:none'>
     <img src='../www/images/como se siente 8.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 8')
         obj.addEventListener('touchstart', function(event){
@@ -413,7 +399,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 9' style='display:none'>
     <img src='../www/images/como se siente 9.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 9')
         obj.addEventListener('touchstart', function(event){
@@ -426,7 +411,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='como me siento 10' style='display:none'>
     <img src='../www/images/como se siente 10.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
             <script type="text/javascript">
         var obj = document.getElementById('como me siento 10')
         obj.addEventListener('touchstart', function(event){
@@ -439,11 +423,10 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='como me siento 11' style='display:none'>
     <img src='../www/images/como se siente 11.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('como me siento 11')
         obj.addEventListener('touchstart', function(event){
-            if(event.touches.length == 6){
+            if(event.touches.length == 4){
                 document.getElementById('como me siento 11').style.display = 'none'
                 document.getElementById('correcto11').style.display = 'inline'
                 }
@@ -452,11 +435,10 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='como me siento 12' style='display:none'>
     <img src='../www/images/como se siente 12.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('como me siento 12')
         obj.addEventListener('touchstart', function(event){
-            if(event.touches.length == 6){
+            if(event.touches.length == 4){
                 document.getElementById('como me siento 12').style.display = 'none'
                 document.getElementById('correcto12').style.display = 'inline'
                 }
@@ -610,7 +592,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
         <div id='numero1' style='display:none'>
     <img src='../www/images/numero1.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>        
  <script type="text/javascript">
         var obj = document.getElementById('numero1')
         obj.addEventListener('touchstart', function(event){
@@ -623,7 +604,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero2' style='display:none'>
     <img src='../www/images/numero2.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero2')
         obj.addEventListener('touchstart', function(event){
@@ -636,7 +616,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero3' style='display:none'>
     <img src='../www/images/numero3.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero3')
         obj.addEventListener('touchstart', function(event){
@@ -649,7 +628,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero4' style='display:none'>
     <img src='../www/images/numero4.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero4')
         obj.addEventListener('touchstart', function(event){
@@ -662,7 +640,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero5' style='display:none'>
     <img src='../www/images/numero5.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero5')
         obj.addEventListener('touchstart', function(event){
@@ -675,7 +652,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero6' style='display:none'>
     <img src='../www/images/numero6.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero6')
         obj.addEventListener('touchstart', function(event){
@@ -688,7 +664,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero7' style='display:none'>
     <img src='../www/images/numero7.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero7')
         obj.addEventListener('touchstart', function(event){
@@ -701,7 +676,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero8' style='display:none'>
     <img src='../www/images/numero8.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero8')
         obj.addEventListener('touchstart', function(event){
@@ -714,7 +688,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero9' style='display:none'>
     <img src='../www/images/numero9.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero9')
         obj.addEventListener('touchstart', function(event){
@@ -727,7 +700,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero10' style='display:none'>
     <img src='../www/images/numero10.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero10')
         obj.addEventListener('touchstart', function(event){
@@ -740,7 +712,6 @@ canvas.addEventListener('touchstart', function(event) {
     </div>
             <div id='numero11' style='display:none'>
     <img src='../www/images/numero11.png' style='background;width:100%;height:100%'>
-    <img src='../www/images/volver.png' onclick='ol();' style='position:relative;left:900px;bottom:575px;width:50px;height:50px'>
                 <script type="text/javascript">
         var obj = document.getElementById('numero11')
         obj.addEventListener('touchstart', function(event){
